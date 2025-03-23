@@ -25,6 +25,7 @@ static void setup_signals(void) {
 
 int main(const int argc, char* argv[]) {
     if (argc != 2) {
+        logger_error("Usage: adhole <config.conf>");
         return 1;
     }
 
