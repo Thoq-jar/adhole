@@ -1,9 +1,6 @@
 #include "dns_server.h"
 #include "config.h"
 #include <signal.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 #include <string.h>
 #include "logger.h"
 
@@ -17,8 +14,7 @@ static void signal_handler(int signum) {
 }
 
 static void setup_signals(void) {
-    struct sigaction sa;
-    memset(&sa, 0, sizeof(sa));
+    struct sigaction sa = {0};
     sa.sa_handler = &signal_handler;
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = 0;

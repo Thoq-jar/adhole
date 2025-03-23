@@ -19,13 +19,13 @@ struct DNSServer {
     bool running;
 };
 
-static char* dns_decode_name(const uint8_t* src, size_t* offset, size_t maxlen) {
+static char* dns_decode_name(const uint8_t* src, size_t* offset, const size_t maxlen) {
     char name[DNS_MAX_NAME_LENGTH + 1];
     size_t name_len = 0;
     size_t current_offset = *offset;
 
     while (current_offset < maxlen) {
-        uint8_t len = src[current_offset++];
+        const uint8_t len = src[current_offset++];
         if (len == 0) break;
 
         if (name_len > 0) {
@@ -67,8 +67,7 @@ static void process_dns_query(const DNSServer* server, const uint8_t* query, siz
         header->flags |= 0x8183;
         *response_len = query_len;
     } else {
-        struct sockaddr_in upstream;
-        memset(&upstream, 0, sizeof(upstream));
+        struct sockaddr_in upstream = {0};
         upstream.sin_family = AF_INET;
         upstream.sin_port = htons(53);
         inet_pton(AF_INET, server->config->upstream_dns, &upstream.sin_addr);
@@ -119,8 +118,7 @@ bool dns_server_start(DNSServer* server) {
         return false;
     }
 
-    struct sockaddr_in addr;
-    memset(&addr, 0, sizeof(addr));
+    struct sockaddr_in addr = {0};
     addr.sin_family = AF_INET;
     addr.sin_port = htons(server->config->listen_port);
     inet_pton(AF_INET, server->config->listen_address, &addr.sin_addr);

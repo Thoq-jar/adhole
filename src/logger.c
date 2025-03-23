@@ -49,5 +49,9 @@ void logger_allowed(const char* format, ...) {
 }
 
 void logger_seperator(void) {
-  printf("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
+  printf("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n");
+}
+
+void logger_n_line(void) {
+  printf("\n");
 }

@@ -7,5 +7,6 @@ void logger_error(const char* format, ...);
 void logger_blocked(const char* format, ...);
 void logger_allowed(const char* format, ...);
 void logger_seperator(void);
+void logger_n_line(void);
 
 #endif

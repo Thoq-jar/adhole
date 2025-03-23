@@ -28,7 +28,7 @@ DNSConfig* config_load(const char* filename) {
         if (!eq) continue;
 
         *eq = '\0';
-        char* key = line;
+        const char* key = line;
         char* value = eq + 1;
 
         char* nl = strchr(value, '\n');
@@ -37,7 +37,7 @@ DNSConfig* config_load(const char* filename) {
         if (strcmp(key, "listen_port") == 0) {
             if (strcmp(key, "listen_port") == 0) {
                 char* endptr;
-                long port = strtol(value, &endptr, 10);
+                const long port = strtol(value, &endptr, 10);
 
                 if (endptr == value || *endptr != '\0' ||
                     port <= 0 || port > UINT16_MAX) {
