@@ -5,6 +5,7 @@
 
 #define DNS_MAX_NAME_LENGTH 255
 #define DNS_MAX_LABEL_LENGTH 63
+#define DNS_MAX_PACKET_SIZE 512
 
 typedef struct {
     uint16_t id;

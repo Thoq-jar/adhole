@@ -1,15 +1,16 @@
 cc_library(
     name = "adhole_lib",
+    srcs = glob(["src/*.c"]),
     hdrs = glob(["include/*.h"]),
     strip_include_prefix = "include",
+    includes = ["include"],
 )
 
 cc_binary(
     name = "adhole",
-    srcs = glob(["src/*.c"]),
+    deps = [":adhole_lib"],
     data = [
         "config/blocklist.txt",
         "config/config.conf",
     ],
-    deps = ["//:adhole_lib"],
 )

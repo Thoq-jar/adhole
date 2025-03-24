@@ -4,6 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
+
+#ifndef HAVE_REALLOCARRAY
+static void *reallocarray(void *ptr, size_t nmemb, size_t size) {
+    if (size && nmemb > SIZE_MAX / size) {
+        errno = ENOMEM;
+        return NULL;
+    }
+    return realloc(ptr, nmemb * size);
+}
+#endif
 
 struct BlockList {
     char **domains;

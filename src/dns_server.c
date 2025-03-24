@@ -1,8 +1,7 @@
+#include "dns_types.h"
 #include "dns_server.h"
-
 #include <logger.h>
 
-#include "dns_types.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,19 +19,44 @@ struct DNSServer {
 };
 
 static char *dns_decode_name(const uint8_t *src, size_t *offset, const size_t maxlen) {
+    if (!src || !offset || *offset >= maxlen || maxlen > 512) {
+        return NULL;
+    }
+
     char name[DNS_MAX_NAME_LENGTH + 1];
     size_t name_len = 0;
     size_t current_offset = *offset;
+    size_t jumps = 0;
+    const size_t max_jumps = 10;
 
-    while(current_offset < maxlen) {
+    while (current_offset < maxlen) {
         const uint8_t len = src[current_offset++];
-        if(len == 0) break;
 
-        if(name_len > 0) {
+        if ((len & 0xC0) == 0xC0) {
+            if (current_offset >= maxlen || jumps++ >= max_jumps) {
+                return NULL;
+            }
+            
+            size_t new_offset = ((len & 0x3F) << 8) | src[current_offset++];
+            if (new_offset >= maxlen) {
+                return NULL;
+            }
+            
+            if (*offset == 0) {
+                *offset = current_offset;
+            }
+            current_offset = new_offset;
+            continue;
+        }
+
+        if (len == 0) break;
+
+        if (name_len > 0) {
+            if (name_len >= DNS_MAX_NAME_LENGTH) return NULL;
             name[name_len++] = '.';
         }
 
-        if(current_offset + len > maxlen || name_len + len > DNS_MAX_NAME_LENGTH) {
+        if (current_offset + len > maxlen || name_len + len > DNS_MAX_NAME_LENGTH) {
             return NULL;
         }
 
@@ -41,41 +65,82 @@ static char *dns_decode_name(const uint8_t *src, size_t *offset, const size_t ma
         current_offset += len;
     }
 
+    if (name_len >= DNS_MAX_NAME_LENGTH) return NULL;
     name[name_len] = '\0';
-    *offset = current_offset;
+    
+    if (*offset == 0) {
+        *offset = current_offset;
+    }
+
     return strdup(name);
 }
 
 static void process_dns_query(const DNSServer *server, const uint8_t *query, const size_t query_len,
                               uint8_t *response, size_t *response_len) {
-    if(query_len < sizeof(DNSHeader) || query_len > 255) {
+    if (!server || !query || !response || !response_len || 
+        query_len < sizeof(DNSHeader) || query_len > DNS_MAX_PACKET_SIZE) {
         *response_len = 0;
         return;
     }
 
+    if (query_len > DNS_MAX_PACKET_SIZE) {
+        *response_len = 0;
+        return;
+    }
     memcpy(response, query, query_len);
+    
     DNSHeader *header = (DNSHeader *) response;
     size_t offset = sizeof(DNSHeader);
 
-    char *domain = dns_decode_name(query, &offset, query_len);
-    if(!domain) {
+    if ((header->flags & 0x8000) != 0 ||
+        (header->flags & 0x7800) != 0) {
         *response_len = 0;
         return;
     }
 
-    if(blocklist_check_domain(server->blocklist, domain)) {
+    char *domain = dns_decode_name(query, &offset, query_len);
+    if (!domain) {
+        *response_len = 0;
+        return;
+    }
+
+    size_t domain_len = strlen(domain);
+    if (domain_len == 0 || domain_len > DNS_MAX_NAME_LENGTH) {
+        free(domain);
+        *response_len = 0;
+        return;
+    }
+
+    if (blocklist_check_domain(server->blocklist, domain)) {
         header->flags |= 0x8183;
         *response_len = query_len;
     } else {
         struct sockaddr_in upstream = {0};
         upstream.sin_family = AF_INET;
         upstream.sin_port = htons(53);
-        inet_pton(AF_INET, server->config->upstream_dns, &upstream.sin_addr);
+        if (inet_pton(AF_INET, server->config->upstream_dns, &upstream.sin_addr) != 1) {
+            free(domain);
+            *response_len = 0;
+            return;
+        }
 
-        sendto(server->upstream_fd, query, query_len, 0,
-               (struct sockaddr *) &upstream, sizeof(upstream));
+        ssize_t sent = sendto(server->upstream_fd, query, query_len, 0,
+                            (struct sockaddr *) &upstream, sizeof(upstream));
+        
+        if (sent < 0 || (size_t)sent != query_len) {
+            free(domain);
+            *response_len = 0;
+            return;
+        }
 
-        *response_len = recvfrom(server->upstream_fd, response, 512, 0, NULL, NULL);
+        struct timeval tv = {.tv_sec = 5, .tv_usec = 0};
+        setsockopt(server->upstream_fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
+
+        *response_len = recvfrom(server->upstream_fd, response, DNS_MAX_PACKET_SIZE, 0, NULL, NULL);
+        
+        if (*response_len < sizeof(DNSHeader) || *response_len > DNS_MAX_PACKET_SIZE) {
+            *response_len = 0;
+        }
     }
 
     free(domain);

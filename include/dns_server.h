@@ -1,6 +1,8 @@
 #ifndef DNS_SERVER_H
 #define DNS_SERVER_H
 
+#include <stdbool.h>
+#include "dns_types.h"
 #include "config.h"
 #include "blocklist.h"
 
