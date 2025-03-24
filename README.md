@@ -25,7 +25,9 @@ Prerequisites:
 |------------------------|-----------------------------|
 | CPU: Dual (2) Core CPU | Quad (4) core CPU or better |
 | Memory: 4GB DDR4       | 8GB DDR4 or better          |
-| NIC: 1GB duplex        | 1GB duplex or better        |
+| NIC: 1GB duplex¹       | 1GB duplex or better¹       |
+
+¹This depends on your internet speed!
 
 Recommended devices
 - Raspberry Pi 5 (4GB or 8GB)
