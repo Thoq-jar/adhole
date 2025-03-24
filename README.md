@@ -20,7 +20,7 @@ and make sure its pointing to the blocklist.
 set -o pipefail
 command -v bazel && bazel --version
 bazel build //:adhole
-sudo ./bazel-out/adhole /etc/adhole/config.conf # Or custom path to config
+sudo ./bazel-bin/adhole /etc/adhole/config.conf # Or custom path to config
 ```
 ### Building
 **Exe**:
