@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* dns_strdup_safe(const char* str) {
-    if (!str) return NULL;
+char *dns_strdup_safe(const char *str) {
+    if(!str) return NULL;
     const size_t len = strlen(str);
-    char* dup = malloc(len + 1);
-    if (dup) {
+    char *dup = malloc(len + 1);
+    if(dup) {
         memcpy(dup, str, len);
         dup[len] = '\0';
     }
