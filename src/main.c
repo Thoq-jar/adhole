@@ -6,7 +6,7 @@
 
 static DNSServer *g_server = NULL;
 
-static void signal_handler(int signum) {
+static void signal_handler(const int signum) {
     (void) signum;
     if(g_server) {
         dns_server_stop(g_server);
