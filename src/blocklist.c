@@ -5,8 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <stdint.h>
 
-#ifndef HAVE_REALLOCARRAY
+#if defined(__APPLE__) && !defined(HAVE_REALLOCARRAY)
 static void *reallocarray(void *ptr, size_t nmemb, size_t size) {
     if (size && nmemb > SIZE_MAX / size) {
         errno = ENOMEM;
