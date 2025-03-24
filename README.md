@@ -2,6 +2,8 @@
 
 Network wide ad blocker
 
+This is just for me to learn!
+
 ## Setup
 
 Prerequisites:
