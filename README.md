@@ -30,6 +30,7 @@ Prerequisites:
 ¹This depends on your internet speed!
 
 Recommended devices
+- An old laptop you have lying around
 - Raspberry Pi 5 (4GB or 8GB)
 - [MINISFORUM UN100P](https://www.amazon.com/MINISFORUM-Ethernet-Business-Home-Server-Firewall/dp/B0CQYTB568?th=1)
 
