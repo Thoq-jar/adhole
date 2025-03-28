@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-
 void logger_info(const char *format, ...) {
   printf("\033[90m[\033[94m INFO \033[90m]\033[0m ");
   va_list args;
