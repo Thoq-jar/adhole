@@ -141245,3 +141245,243 @@
 # 'example.com':
 
 # 0.0.0.0 example.com
+# THIS FILE IS NO LONGER BEING MAINTAINED. FOR A MAINTAINED VERSION, PLEASE USE THE VERSION IN THE NEW REPOSITORY.
+# Repository: https://github.com/hkamran80/blocklists
+# New link for this file: https://raw.githubusercontent.com/hkamran80/blocklists/main/smart-tv
+
+# ------
+
+# This is a blocklist to block Smart TVs sending data home.
+# Please help to collect domains!
+# It could be that the TV does not receive any more updates or other services no longer work. Please report such an incident.
+
+# Panasonic Viera
+
+0.0.0.0 x2.vindicosuite.com
+0.0.0.0 occ-0-399-783.1.nflxso.net
+0.0.0.0 cert-test.sandbox.google.com
+0.0.0.0 vcs.vdspf.com
+0.0.0.0 mhc-ajax-us.myhomescreen.tv
+0.0.0.0 mhc-ajax-eu.myhomescreen.tv
+0.0.0.0 mhc-sec-us.myhomescreen.tv
+0.0.0.0 mhc-sec-eu.myhomescreen.tv
+0.0.0.0 mhc-xpana-us.myhomescreen.tv
+0.0.0.0 mhc-xpana-eu.myhomescreen.tv
+0.0.0.0 collect-eu-fy2015.myhomescreen.tv
+0.0.0.0 collect-eu-fy2017.myhomescreen.tv
+0.0.0.0 collect-us-fy2016.myhomescreen.tv
+0.0.0.0 usage-eu-fy2015.myhomescreen.tv
+0.0.0.0 usage-eu-fy2017.myhomescreen.tv
+0.0.0.0 usage-eu-fy2019.myhomescreen.tv
+0.0.0.0 usage-us-fy2015.myhomescreen.tv
+0.0.0.0 usage-us-fy2017.myhomescreen.tv
+0.0.0.0 0077777700140002.myhomescreen.tv
+
+# Sony Bravia
+0.0.0.0 ssm1.internet.sony.tv
+0.0.0.0 bravia.dl.playstation.net
+0.0.0.0 api-mf1.meta.ndmdhs.com
+0.0.0.0 # needed for applications, if blocked error "no internet connection"
+0.0.0.0 #portal.store.sonyentertainmentnetwork.com
+0.0.0.0 # needed for applications
+0.0.0.0 #applicast.ga.sony.net
+0.0.0.0 sonybivstatic-a.akamaihd.net
+0.0.0.0 b02.black.ndmdhs.com
+0.0.0.0 call.me.sel.sony.com
+0.0.0.0 ad8641f3cff742de893d919add74c2bb.ssm1.internet.sony.tv
+0.0.0.0 ad8641f3cff742de893d919add74c2bb.ssm2.internet.sony.tv
+0.0.0.0 flingo.tv
+
+# LG
+0.0.0.0 us.rdx2.lgtvsdp.com
+0.0.0.0 us.info.lgsmartad.com
+0.0.0.0 us.ibs.lgappstv.com
+0.0.0.0 us.lgtvsdp.com
+0.0.0.0 ad.lgappstv.com
+0.0.0.0 smartshare.lgtvsdp.com
+0.0.0.0 ibis.lgappstv.com
+0.0.0.0 us.ad.lgsmartad.com
+0.0.0.0 lgad.cjpowercast.com.edgesuite.net
+0.0.0.0 ngfts.lge.com
+0.0.0.0 yumenetworks.com
+0.0.0.0 smartclip.net
+0.0.0.0 smartclip.com
+
+# Philips
+0.0.0.0 @ deviceportal.nettvservices.com
+0.0.0.0 epg.corio.com
+0.0.0.0 legacyportal.nettvservices.com
+0.0.0.0 nettv.corio.com
+
+# Samsung
+0.0.0.0 device-metrics-us.amazon.com
+0.0.0.0 samsungacr.com
+0.0.0.0 samsungcloudsolution.com
+0.0.0.0 samsungcloudsolution.net
+0.0.0.0 pavv.co.kr
+0.0.0.0 samsungotn.net
+0.0.0.0 samsungrm.net
+0.0.0.0 samsungelectronics.com
+0.0.0.0 samsungadhub.com
+0.0.0.0 samsungosp.com
+0.0.0.0 #samsungqbe.com
+0.0.0.0 Coordinator-Production-28516768.us-east-1.elb.amazonaws.com
+0.0.0.0 abtauthprd.samsungcloudsolution.com
+0.0.0.0 acr0.samsungcloudsolution.com
+0.0.0.0 ad.samsungadhub.com
+0.0.0.0 amauthprd.samsungcloudsolution.com
+0.0.0.0 api-hub.samsungyosemite.com
+0.0.0.0 auth.samsungosp.com
+0.0.0.0 az43064.vo.msecnd.net
+0.0.0.0 cdn.samsungcloudsolution.com
+0.0.0.0 cdn.samsungcloudsolution.net
+0.0.0.0 d179kwmlpc4o47.cloudfront.ne
+0.0.0.0 d179kwmlpc4o47.cloudfront.net
+0.0.0.0 d1jwpcr0q4pcq0.cloudfront.net
+0.0.0.0 d1oxlq5h9kq8q5.cloudfront.net
+0.0.0.0 d2tnx644ijgq6i.cloudfront.net
+0.0.0.0 d3mjsomixevyw7.cloudfront.net
+0.0.0.0 dev-multiscreen.samsung.com
+0.0.0.0 fkp.samsungcloudsolution.com
+0.0.0.0 fkp.samsungcloudsolution.net
+0.0.0.0 game.internetat.tv
+0.0.0.0 gld.samsungosp.com
+0.0.0.0 #gpm.samsungqbe.com
+0.0.0.0 i-stream.pl
+0.0.0.0 infolink.pavv.co.kr
+0.0.0.0 lcprd1.samsungcloudsolution.net
+0.0.0.0 log-1.samsungacr.com
+0.0.0.0 log-2.samsungacr.com
+0.0.0.0 log-3.samsungacr.com
+0.0.0.0 log.internetat.tv
+0.0.0.0 multiscreen.samsung.com
+0.0.0.0 notice.samsungcloudsolution.com
+0.0.0.0 noticecdn.samsungcloudsolution.com
+0.0.0.0 noticefile.samsungcloudsolution.com
+0.0.0.0 ns11.whois.co.kr
+0.0.0.0 oempprd.samsungcloudsolution.com
+0.0.0.0 oempprd.samsungcloudsolution.net
+0.0.0.0 openapi.samsung.com
+0.0.0.0 #osb.samsungqbe.com
+0.0.0.0 otnprd10.samsungcloudsolution.net
+0.0.0.0 otnprd11.samsungcloudsolution.net
+0.0.0.0 otnprd8.samsungcloudsolution.net
+0.0.0.0 otnprd9.samsungcloudsolution.net
+0.0.0.0 pipeaota.com
+0.0.0.0 premium-videos.telly.com
+0.0.0.0 prov.samsungcloudsolution.com
+0.0.0.0 rd.samsungadhub.com
+0.0.0.0 sas.samsungcloudsolution.com
+0.0.0.0 sca.samsung.com
+0.0.0.0 sso.internetat.tv
+0.0.0.0 syncplusconfig.s3.amazonaws.com
+0.0.0.0 targeted-config-test.samsungacr.com
+0.0.0.0 test.samsungrm.net
+0.0.0.0 time.samsungcloudsolution.com
+0.0.0.0 upu.samsungelectronics.com
+0.0.0.0 us-api.samsungyosemite.com
+0.0.0.0 vd.emp.prd.s3.amazonaws.com
+0.0.0.0 vdterms.samsungcloudsolution.com
+0.0.0.0 www.samsungotn.net
+0.0.0.0 www.samsungrm.net
+0.0.0.0 xpu.samsungelectronics.com
+0.0.0.0 acr0.samsungcloudsolution.com
+0.0.0.0 d1oxlq5h9kq8q5.cloudfront.net
+0.0.0.0 d179kwmlpc4o47.cloudfront.net
+0.0.0.0 www.samsungrm.net
+0.0.0.0 www.samsungotn.net
+0.0.0.0 game.internetat.tv
+0.0.0.0 ns11.whois.co.kr
+0.0.0.0 infolink.pavv.co.k
+0.0.0.0 rwww.samsungotn.net
+0.0.0.0 premium-videos.telly.com
+0.0.0.0 targeted-config-test.samsungacr.com
+0.0.0.0 syncplusconfig.s3.amazonaws.com
+0.0.0.0 cdn.samsungcloudsolution.com
+0.0.0.0 oempprd.samsungcloudsolution.com
+0.0.0.0 time.samsungcloudsolution.com
+0.0.0.0 lcprd1.samsungcloudsolution.net
+
+0.0.0.0 ads.samsungads.com
+0.0.0.0 configprd.samsungcloudsolution.net
+0.0.0.0 log-ingestion.samsungacr.com
+0.0.0.0 ypu.samsungelectronics.com
+0.0.0.0 #osb-apps.samsungqbe.com
+0.0.0.0 #osb-krsvc.samsungqbe.com
+0.0.0.0 musicid.samsungcloudsolution.com
+0.0.0.0 cpu.samsungelectronics.com
+
+0.0.0.0 config.samsungads.com
+0.0.0.0 log-config.samsungacr.com
+0.0.0.0 ads.samsung.com
+0.0.0.0 events.samsungads.com
+
+# Other useless connections from Smart-TV
+
+0.0.0.0 get.geo.opera.com
+0.0.0.0 xml.opera.com
+0.0.0.0 itv.ard.de
+0.0.0.0 cert-test.sandbox.google.com
+0.0.0.0 googleads.g.doubleclick.net
+0.0.0.0 hbbtv.redbutton.de
+0.0.0.0 hbbtv.zdf.de
+0.0.0.0 drscdn.500px.org
+0.0.0.0 tv-static.scdn.co
+0.0.0.0 apicache.vudu.com
+0.0.0.0 tv.deezer.com
+0.0.0.0 cdns-content.dzcdn.net
+0.0.0.0 nbc-jite.nbcuni.com
+
+# Netflix
+0.0.0.0 # secure, api-global, ichnaea, and appboot break Netflix
+0.0.0.0 #secure.netflix.com
+0.0.0.0 #api-global.netflix.com
+0.0.0.0 #ichnaea.netflix.com
+0.0.0.0 customerevents.netflix.com
+0.0.0.0 #appboot.netflix.com
+0.0.0.0 nrdp.nccp.netflix.com
+
+# Spotify
+0.0.0.0 api-tv.spotify.com
+
+# Hulu
+0.0.0.0 api.distribution.hulu.com
+
+0.0.0.0 # Sharp Smart TV using Opera OS (thanks to sml156)
+0.0.0.0 # These may be needed for software/firmware update's, not sure if it's one or both but the first one try's thousands of times a day to connect.
+0.0.0.0 api.us.hismarttv.com
+0.0.0.0 api.euro.hismarttv.com
+
+# Fire TV
+0.0.0.0 arcus-uswest.amazon.com
+0.0.0.0 avs-alexa-19-eu.amazon.com
+0.0.0.0 #ktpx-eu.amazon.com
+0.0.0.0 dcape-na.amazon.com
+0.0.0.0 #fireoscaptiveportal.com
+0.0.0.0 aviary.amazon.de
+0.0.0.0 api.eu.amazonalexa.com
+0.0.0.0 mas-ext-eu.amazon.com
+0.0.0.0 mads-eu.amazon.com
+0.0.0.0 dp-gw-na.amazon.com
+0.0.0.0 ftv-smtv.ntp-fireos.com
+0.0.0.0 #dp-discovery-na-ext.amazon.com
+0.0.0.0 aviary.amazon.com
+0.0.0.0 o2r2hew432.execute-api.us-east-1.amazonaws.com
+0.0.0.0 andr-25-aftkmst12-641002610.api.amazonvideo.com
+0.0.0.0 prod.amazoncrl.com
+0.0.0.0 arcus-uswest.amazon.com
+
+# Xioami Mi TV
+0.0.0.0 mitv.tracking.intl.miui.com
+0.0.0.0 tracking.intl.miui.com
+0.0.0.0 data.mistat.intl.xiaomi.com
+0.0.0.0 sdkconfig.ad.intl.xiaomi.com
+
+# Roku
+0.0.0.0 static.doubleclick.net
+0.0.0.0 track.sr.roku.com
+0.0.0.0 p.ads.roku.com
+0.0.0.0 bif.sr.roku.com
+0.0.0.0 traces.sr.roku.com
+0.0.0.0 #cloudservices.roku.com
+0.0.0.0 amarillo.sb.roku.com
