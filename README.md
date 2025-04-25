@@ -12,6 +12,7 @@ Prerequisites:
 - Unix system (Linux, macOS, freebsd)
 
 ### System Requirements
+**NOTE: Windows will most likely not work!!**
 
 | Arch - OS                   | Supported |
 |-----------------------------|-----------|
