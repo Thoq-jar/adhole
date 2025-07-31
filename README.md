@@ -8,7 +8,7 @@ This is just for me to learn!
 
 Prerequisites:
 
-- [Bazel](https://bazel.build)
+- [Velux](https://github.com/thoq-jar/velux)
 - Unix system (Linux, macOS, freebsd)
 
 ### System Requirements
@@ -59,9 +59,9 @@ These are in order of what I recommend for beginners *and* stability.
 
 ```shell
 set -o pipefail
-command -v bazel && bazel --version
-bazel build //:adhole
-sudo ./bazel-bin/adhole /etc/adhole/config.conf # Or custom path to config
+command -v velux && velux -h
+velux build adhole
+sudo ./velux-out/executable/adhole /etc/adhole/config.conf # Or custom path to config
 ```
 
 ### Building
@@ -69,13 +69,7 @@ sudo ./bazel-bin/adhole /etc/adhole/config.conf # Or custom path to config
 **Exe**:
 
 ```shell
-bazel build //:adhole
-```
-
-**Lib**:
-
-```shell
-bazel build //:adhole_lib
+velux build adhole
 ```
 
 ### Running
@@ -83,5 +77,5 @@ bazel build //:adhole_lib
 **Exe**:
 
 ```shell
-bazel run //:adhole config/config.conf
+velux run start
 ```

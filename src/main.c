@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "dns_server.h"
 #include "config.h"
 #include <signal.h>

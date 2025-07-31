@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "dns_types.h"
 #include "dns_server.h"
 #include <logger.h>
@@ -5,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/time.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
