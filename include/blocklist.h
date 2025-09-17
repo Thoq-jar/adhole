@@ -1,8 +1,6 @@
 #ifndef BLOCKLIST_H
 #define BLOCKLIST_H
 
-#include <stdbool.h>
-
 typedef struct BlockList BlockList;
 
 BlockList* blocklist_init(void);

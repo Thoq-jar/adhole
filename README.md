@@ -51,10 +51,10 @@ These are in order of what I recommend for beginners *and* stability.
 1. Edit the config in `config/config.conf` to run on the
    desired port (likely 53) and also point to your blocklist,
    if you want to use the provided blocklist, copy it over to the recommended
-   dir `/etc/adhole/blocklist.txt`.
+   dir `/etc/adweb/blocklist.txt`.
 2. Copy the config over to `/etc/adhole/config.conf`
    and make sure its pointing to the blocklist.
-3. Run: `git clone https://github.com/thoq-jar/adhole.git && cd adhole`
+3. Run: `git clone https://github.com/thoq-jar/adweb.git && cd adweb`
 4. Run the following command:
 
 ```shell

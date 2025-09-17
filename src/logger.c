@@ -11,8 +11,8 @@ void logger_info(const char *format, ...) {
   printf("\n");
 }
 
-void logger_adhole(const char *format, ...) {
-  printf("\033[90m[\033[95m ADHOLE \033[90m]\033[0m ");
+void logger_adweb(const char *format, ...) {
+  printf("\033[90m[\033[95m ADWEB \033[90m]\033[0m ");
   va_list args;
   va_start(args, format);
   vprintf(format, args);

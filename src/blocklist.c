@@ -1,17 +1,15 @@
-#define _GNU_SOURCE
+#define GNU_SOURCE
 #include "blocklist.h"
 #include <ctype.h>
 #include <logger.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <strings.h>
 #include <errno.h>
-#include <stdint.h>
 
 #if defined(__APPLE__) && !defined(HAVE_REALLOCARRAY)
-static void *reallocarray(void *ptr, size_t nmemb, size_t size) {
-    if (size && nmemb > SIZE_MAX / size) {
+static void *reallocarray(void *ptr, const size_t nmemb, const size_t size) {
+    if (nmemb > SIZE_MAX / size) {
         errno = ENOMEM;
         return NULL;
     }
@@ -87,11 +85,11 @@ bool blocklist_load_file(BlockList *list, const char *filename) {
 
 BlockList *blocklist_init(void) {
     BlockList *list = calloc(1, sizeof(BlockList));
-    if (!list) return NULL;
+    if (!list) return nullptr;
 
     if (!blocklist_ensure_capacity(list, INITIAL_CAPACITY)) {
         free(list);
-        return NULL;
+        return nullptr;
     }
 
     return list;
@@ -101,18 +99,18 @@ bool blocklist_check_domain(const BlockList *list, const char *domain) {
     if (!list || !domain) return false;
 
     logger_seperator();
-    logger_adhole("Screening domain: %s", domain);
+    logger_adweb("Screening domain: %s", domain);
 
     for (size_t i = 0; i < list->count; i++) {
         if (strcasecmp(list->domains[i], domain) == 0) {
-            logger_adhole("Domain %s found in blocklist", domain);
+            logger_adweb("Domain %s found in blocklist", domain);
             logger_blocked("%s", domain);
             logger_n_line();
             return true;
         }
     }
 
-    logger_adhole("Domain %s not found in blocklist", domain);
+    logger_adweb("Domain %s not found in blocklist", domain);
     logger_allowed("%s", domain);
     logger_n_line();
 

@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+#define GNU_SOURCE
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,13 +8,13 @@ DNSConfig *config_load(const char *filename) {
     FILE *file = fopen(filename, "r");
     if(!file) {
         fprintf(stderr, "Failed to open config file: %s\n", filename);
-        return NULL;
+        return nullptr;
     }
 
     DNSConfig *config = calloc(1, sizeof(DNSConfig));
     if(!config) {
         fclose(file);
-        return NULL;
+        return nullptr;
     }
 
     config->listen_port = 53;
