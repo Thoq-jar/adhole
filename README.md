@@ -58,8 +58,8 @@ These are in order of what I recommend for beginners *and* stability.
 4. Run the following command:
 
 ```shell
-meson setup builddir
-meson compile -C builddir
+CC=clang meson setup builddir
+CC=clang meson compile -C builddir
 sudo mv ./builddir/adweb /usr/local/bin/
 sudo adhole /etc/adhole/config.conf # Or custom path to config
 ```
