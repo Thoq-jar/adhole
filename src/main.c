@@ -15,14 +15,15 @@ static void signal_handler(const int signum) {
 }
 
 static void setup_signals(void) {
-    struct sigaction sa = {};
+    struct sigaction sa;
     sa.sa_handler = &signal_handler;
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = 0;
 
-    sigaction(SIGINT, &sa, nullptr);
-    sigaction(SIGTERM, &sa, nullptr);
+    sigaction(SIGINT, &sa, NULL); // NOLINT(*-use-nullptr)
+    sigaction(SIGTERM, &sa, NULL); // NOLINT(*-use-nullptr)
 }
+
 
 int main(const int argc, char *argv[]) {
     if(argc != 2) {
