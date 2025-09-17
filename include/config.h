@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifndef __APPLE__
+#include <stdbool.h>
+#endif
+
 typedef struct {
     char* upstream_dns;
     char* blocklist_file;

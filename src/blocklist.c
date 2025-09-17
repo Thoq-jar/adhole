@@ -7,6 +7,10 @@
 #include <strings.h>
 #include <errno.h>
 
+#ifndef __APPLE__
+#include <string.h>
+#endif
+
 #if defined(__APPLE__) && !defined(HAVE_REALLOCARRAY)
 static void *reallocarray(void *ptr, const size_t nmemb, const size_t size) {
     if (nmemb > SIZE_MAX / size) {
