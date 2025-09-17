@@ -9,10 +9,11 @@
 
 #ifndef __APPLE__
 #include <string.h>
+#include <stdint.h>
 #endif
 
 #if !defined(HAVE_REALLOCARRAY)
-static void *reallocarray(void *ptr, size_t nmemb, size_t size) {
+static void *reallocarray(void *ptr, const size_t nmemb, size_t size) {
     if (nmemb > SIZE_MAX / size) {
         errno = ENOMEM;
         return NULL;
