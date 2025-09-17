@@ -8,7 +8,7 @@ This is just for me to learn!
 
 Prerequisites:
 
-- [Velux](https://github.com/thoq-jar/velux)
+- [Meson](https://meson.build)
 - Unix system (Linux, macOS, freebsd)
 
 ### System Requirements
@@ -58,10 +58,10 @@ These are in order of what I recommend for beginners *and* stability.
 4. Run the following command:
 
 ```shell
-set -o pipefail
-command -v velux && velux -h
-velux build adhole
-sudo ./velux-out/executable/adhole /etc/adhole/config.conf # Or custom path to config
+meson setup builddir
+meson compile -C builddir
+sudo mv ./builddir/adweb /usr/local/bin/
+sudo adhole /etc/adhole/config.conf # Or custom path to config
 ```
 
 ### Building
@@ -69,13 +69,5 @@ sudo ./velux-out/executable/adhole /etc/adhole/config.conf # Or custom path to c
 **Exe**:
 
 ```shell
-velux build adhole
-```
-
-### Running
-
-**Exe**:
-
-```shell
-velux run start
+meson -C builddir
 ```
