@@ -13,6 +13,10 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
+#ifndef __APPLE__
+#include <stdbool.h>
+#endif
+
 struct DNSServer {
     int socket_fd;
     int upstream_fd;
