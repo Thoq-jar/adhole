@@ -2,28 +2,8 @@
 #include "dns_server.h"
 #include "config.h"
 #include "logger.h"
-#include <signal.h>
-#include <string.h>
 
 static DNSServer *g_server = nullptr;
-
-static void signal_handler(const int signum) {
-    (void) signum;
-
-    if(g_server)
-        dns_server_stop(g_server);
-}
-
-static void setup_signals(void) {
-    struct sigaction sa;
-    sa.sa_handler = &signal_handler;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = 0;
-
-    sigaction(SIGINT, &sa, NULL); // NOLINT(*-use-nullptr)
-    sigaction(SIGTERM, &sa, NULL); // NOLINT(*-use-nullptr)
-}
-
 
 int main(const int argc, char *argv[]) {
     if(argc != 2) {
@@ -37,8 +17,6 @@ int main(const int argc, char *argv[]) {
     DNSConfig *config = config_load(argv[1]);
     if(!config)
         return 1;
-
-    setup_signals();
 
     g_server = dns_server_create(config);
     if(!g_server) {
