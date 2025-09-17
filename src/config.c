@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifndef __APPLE__
+#include <stdbool.h>
+#endif
+
 DNSConfig *config_load(const char *filename) {
     FILE *file = fopen(filename, "r");
     if(!file) {

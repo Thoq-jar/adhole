@@ -1,6 +1,10 @@
 #ifndef BLOCKLIST_H
 #define BLOCKLIST_H
 
+#ifndef __APPLE__
+#include <stdbool.h>
+#endif
+
 typedef struct BlockList BlockList;
 
 BlockList* blocklist_init(void);
