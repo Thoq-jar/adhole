@@ -1,7 +1,8 @@
 #define GNU_SOURCE
 #include "dns_types.h"
 #include "dns_server.h"
-#include <logger.h>
+#include "blocklist.h"
+#include "logger.h"
 
 #include <stdlib.h>
 #include <stdio.h>
