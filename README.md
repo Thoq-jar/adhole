@@ -64,6 +64,11 @@ sudo mv ./builddir/adweb /usr/local/bin/
 sudo adhole /etc/adhole/config.conf # Or custom path to config
 ```
 
+### Updating list
+```shell
+sudo mv adweb/config/blocklist.txt /etc/adweb/blocklist.txt
+```
+
 ### Building
 
 **Exe**:
